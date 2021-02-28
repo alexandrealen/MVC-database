@@ -1,0 +1,71 @@
+﻿@model IEnumerable<GoiabinhaRoom.Models.Goiabinha>
+
+@{
+    ViewData["Title"] = "Lista";
+}
+
+<h1>Lista de Goiabinhas</h1>
+</br>
+
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Adicionar goiabinha</a>
+</p>
+<form asp-controller="Goiabinhas" asp-action="Index" class="form-inline">
+    <div class="form-row align-items-center">
+        <div class="col-auto">
+            Nome do goiabinha: <input type="text" name="nome" class="form-control">
+        </div>
+        <div class="col-auto">
+            Nome do Tech Leader: <input type="text" name="techLeader" class="form-control">
+        </div>
+        <div class="col-auto">
+            <input type="submit" value="Buscar" class="btn btn-primary"/>
+        </div>
+    </div>
+</form>
+</br>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nome
+            </th>
+            <th>
+                Tech Leader
+            </th>
+            <th>
+                Horas de trabalho
+            </th>
+            <th>
+                Tickets completados
+            </th>
+            <th>
+                Ações
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.techLeader)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.horas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tickets)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id" class="btn btn-dark btn-sm">Editar</a> 
+                <a asp-action="Details" asp-route-id="@item.id" class="btn btn-info btn-sm">Detalhes</a> 
+                <a asp-action="Delete" asp-route-id="@item.id" class="btn btn-danger btn-sm">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

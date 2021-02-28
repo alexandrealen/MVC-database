@@ -1,0 +1,49 @@
+﻿@model GoiabinhaRoom.Models.Goiabinha
+
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+<h1>Detalhes do goiabinha</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Nome:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.nome)
+        </dd>
+        <dt class = "col-sm-2">
+            Tech Leader:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.techLeader)
+        </dd>
+        <dt class = "col-sm-2">
+            Horas de trabalho:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.horas)
+        </dd>
+        <dt class = "col-sm-2">
+            Tickets completados:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.tickets)
+        </dd>
+    </dl>
+</div>
+<div class="btn-toolbar" role="toolbar">
+    <div class="btn-group mr-2" role="group">
+        <div class="form-group">
+            <a asp-action="Edit" asp-route-id="@Model.id" class="btn btn-dark">Editar</a>
+        </div>
+    </div>
+    <div class="btn-group mr-2" -role="group">
+        <div>
+            <a asp-action="Index" class="btn btn-info">Voltar para a lista</a>
+        </div>
+    </div>
+</div>
